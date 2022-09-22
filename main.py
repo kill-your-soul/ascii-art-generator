@@ -8,6 +8,8 @@ def get_str_ascii(intent: int) -> str:
 
 
 def get_ascii_art(path: str, scale: int) -> None:
+    if path.startswith('\'') and path.endswith('\'') or path.startswith('"') and path.endswith('"'):
+        path = path[1:-1]
     img = Image.open(path)
     width, height = img.size
     for y in range(0, height):
